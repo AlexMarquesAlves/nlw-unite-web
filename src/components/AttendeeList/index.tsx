@@ -23,7 +23,10 @@ export function AttendeeList({ children }: AttendeeListProps) {
         <table className="w-full ">
           <thead>
             <tr className="border-b border-white/10">
-              <th className="px-4 py-3 text-sm font-semibold text-left">
+              <th
+                style={{ width: 64 }}
+                className="px-4 py-3 text-sm font-semibold text-left"
+              >
                 <input type="checkbox" name="" id="" />
               </th>
               <th className="px-4 py-3 text-sm font-semibold text-left">
@@ -38,7 +41,10 @@ export function AttendeeList({ children }: AttendeeListProps) {
               <th className="px-4 py-3 text-sm font-semibold text-left">
                 Data do check-in
               </th>
-              <th className="px-4 py-3 text-sm font-semibold text-left"></th>
+              <th
+                style={{ width: 64 }}
+                className="px-4 py-3 text-sm font-semibold text-left"
+              ></th>
             </tr>
           </thead>
 
@@ -65,7 +71,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     3 dias atrás
                   </td>
                   <td className="px-4 py-3 text-sm text-zinc-300">
-                    <button>
+                    <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
                       <MoreHorizontal className="size-4" />
                     </button>
                   </td>
