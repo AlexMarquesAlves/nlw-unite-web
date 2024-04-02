@@ -23,14 +23,20 @@ export function AttendeeList({ children }: AttendeeListProps) {
         <table className="w-full ">
           <thead>
             <tr>
-              <th>
+              <th className="px-2.5 text-sm font-semibold  py-3">
                 <input type="checkbox" name="" id="" />
               </th>
-              <th>Código</th>
-              <th>Participantes</th>
-              <th>Data de inscrição</th>
-              <th>Data do check-in</th>
-              <th></th>
+              <th className="px-2.5 text-sm font-semibold  py-3">Código</th>
+              <th className="px-2.5 text-sm font-semibold  py-3">
+                Participantes
+              </th>
+              <th className="px-2.5 text-sm font-semibold  py-3">
+                Data de inscrição
+              </th>
+              <th className="px-2.5 text-sm font-semibold  py-3">
+                Data do check-in
+              </th>
+              <th className="px-2.5 text-sm font-semibold  py-3"></th>
             </tr>
           </thead>
 
