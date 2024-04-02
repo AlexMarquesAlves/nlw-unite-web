@@ -23,32 +23,32 @@ export function AttendeeList({ children }: AttendeeListProps) {
         <table className="w-full ">
           <thead>
             <tr className="border-b border-white/10">
-              <th className="px-2.5 text-left text-sm font-semibold  py-3">
+              <th className="px-4 py-3 text-sm font-semibold text-left">
                 <input type="checkbox" name="" id="" />
               </th>
-              <th className="px-2.5 text-left text-sm font-semibold  py-3">
+              <th className="px-4 py-3 text-sm font-semibold text-left">
                 Código
               </th>
-              <th className="px-2.5 text-left text-sm font-semibold  py-3">
+              <th className="px-4 py-3 text-sm font-semibold text-left">
                 Participantes
               </th>
-              <th className="px-2.5 text-left text-sm font-semibold  py-3">
+              <th className="px-4 py-3 text-sm font-semibold text-left">
                 Data de inscrição
               </th>
-              <th className="px-2.5 text-left text-sm font-semibold  py-3">
+              <th className="px-4 py-3 text-sm font-semibold text-left">
                 Data do check-in
               </th>
-              <th className="px-2.5 text-left text-sm font-semibold  py-3"></th>
+              <th className="px-4 py-3 text-sm font-semibold text-left"></th>
             </tr>
           </thead>
 
           <tbody>
             <tr className="border-b border-white/10">
-              <td className="px-2.5 text-zinc-300 text-sm  py-3">
+              <td className="px-4 py-3 text-sm text-zinc-300">
                 <input type="checkbox" name="" id="" />
               </td>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3">12383</td>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3">
+              <td className="px-4 py-3 text-sm text-zinc-300">12383</td>
+              <td className="px-4 py-3 text-sm text-zinc-300">
                 <div className="flex flex-col gap-1">
                   <span className="font-semibold text-white">
                     Diego Schell Fernandes
@@ -56,22 +56,21 @@ export function AttendeeList({ children }: AttendeeListProps) {
                   <span>diego@rocketseat.com.br</span>
                 </div>
               </td>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3">
-                7 dias atrás
-              </td>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3">
-                3 dias atrás
-              </td>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3"></td>
+              <td className="px-4 py-3 text-sm text-zinc-300">7 dias atrás</td>
+              <td className="px-4 py-3 text-sm text-zinc-300">3 dias atrás</td>
+              <td className="px-4 py-3 text-sm text-zinc-300"></td>
             </tr>
           </tbody>
 
           <tfoot>
             <tr>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3" colSpan={3}>
+              <td className="px-4 py-3 text-sm text-zinc-300" colSpan={3}>
                 Mostrando 10 de 228 itens
               </td>
-              <td className="px-2.5 text-zinc-300 text-sm  py-3" colSpan={3}>
+              <td
+                className="px-4 py-3 text-sm text-right text-zinc-300"
+                colSpan={3}
+              >
                 Página 1 de 23
               </td>
             </tr>
