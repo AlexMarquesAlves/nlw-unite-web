@@ -22,39 +22,47 @@ export function AttendeeList({ children }: AttendeeListProps) {
       <div className="border rounded-lg border-white/10">
         <table className="w-full ">
           <thead>
-            <tr>
-              <th className="px-2.5 text-sm font-semibold  py-3">
+            <tr className="border-b border-white/10">
+              <th className="px-2.5 text-left text-sm font-semibold  py-3">
                 <input type="checkbox" name="" id="" />
               </th>
-              <th className="px-2.5 text-sm font-semibold  py-3">Código</th>
-              <th className="px-2.5 text-sm font-semibold  py-3">
+              <th className="px-2.5 text-left text-sm font-semibold  py-3">
+                Código
+              </th>
+              <th className="px-2.5 text-left text-sm font-semibold  py-3">
                 Participantes
               </th>
-              <th className="px-2.5 text-sm font-semibold  py-3">
+              <th className="px-2.5 text-left text-sm font-semibold  py-3">
                 Data de inscrição
               </th>
-              <th className="px-2.5 text-sm font-semibold  py-3">
+              <th className="px-2.5 text-left text-sm font-semibold  py-3">
                 Data do check-in
               </th>
-              <th className="px-2.5 text-sm font-semibold  py-3"></th>
+              <th className="px-2.5 text-left text-sm font-semibold  py-3"></th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td>
+            <tr className="border-b border-white/10">
+              <td className="px-2.5 text-zinc-300 text-sm  py-3">
                 <input type="checkbox" name="" id="" />
               </td>
-              <td>12383</td>
-              <td>
-                <div>
-                  <span>Diego Schell Fernandes</span>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3">12383</td>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3">
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold text-white">
+                    Diego Schell Fernandes
+                  </span>
                   <span>diego@rocketseat.com.br</span>
                 </div>
               </td>
-              <td>7 dias atrás</td>
-              <td>3 dias atrás</td>
-              <td></td>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3">
+                7 dias atrás
+              </td>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3">
+                3 dias atrás
+              </td>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3"></td>
             </tr>
           </tbody>
 
