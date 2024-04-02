@@ -68,8 +68,12 @@ export function AttendeeList({ children }: AttendeeListProps) {
 
           <tfoot>
             <tr>
-              <td colSpan={3}>Mostrando 10 de 228 itens</td>
-              <td colSpan={3}>Página 1 de 23</td>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3" colSpan={3}>
+                Mostrando 10 de 228 itens
+              </td>
+              <td className="px-2.5 text-zinc-300 text-sm  py-3" colSpan={3}>
+                Página 1 de 23
+              </td>
             </tr>
           </tfoot>
         </table>
