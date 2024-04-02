@@ -43,9 +43,9 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </thead>
 
           <tbody>
-            {Array.from({ length: 8 }).map(() => {
+            {Array.from({ length: 8 }).map((_, i) => {
               return (
-                <tr className="border-b border-white/10">
+                <tr key={i} className="border-b border-white/10">
                   <td className="px-4 py-3 text-sm text-zinc-300">
                     <input type="checkbox" name="" id="" />
                   </td>
