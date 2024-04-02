@@ -43,23 +43,31 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </thead>
 
           <tbody>
-            <tr className="border-b border-white/10">
-              <td className="px-4 py-3 text-sm text-zinc-300">
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td className="px-4 py-3 text-sm text-zinc-300">12383</td>
-              <td className="px-4 py-3 text-sm text-zinc-300">
-                <div className="flex flex-col gap-1">
-                  <span className="font-semibold text-white">
-                    Diego Schell Fernandes
-                  </span>
-                  <span>diego@rocketseat.com.br</span>
-                </div>
-              </td>
-              <td className="px-4 py-3 text-sm text-zinc-300">7 dias atrás</td>
-              <td className="px-4 py-3 text-sm text-zinc-300">3 dias atrás</td>
-              <td className="px-4 py-3 text-sm text-zinc-300"></td>
-            </tr>
+            {Array.from({ length: 8 }).map(() => {
+              return (
+                <tr className="border-b border-white/10">
+                  <td className="px-4 py-3 text-sm text-zinc-300">
+                    <input type="checkbox" name="" id="" />
+                  </td>
+                  <td className="px-4 py-3 text-sm text-zinc-300">12383</td>
+                  <td className="px-4 py-3 text-sm text-zinc-300">
+                    <div className="flex flex-col gap-1">
+                      <span className="font-semibold text-white">
+                        Diego Schell Fernandes
+                      </span>
+                      <span>diego@rocketseat.com.br</span>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-sm text-zinc-300">
+                    7 dias atrás
+                  </td>
+                  <td className="px-4 py-3 text-sm text-zinc-300">
+                    3 dias atrás
+                  </td>
+                  <td className="px-4 py-3 text-sm text-zinc-300"></td>
+                </tr>
+              );
+            })}
           </tbody>
 
           <tfoot>
