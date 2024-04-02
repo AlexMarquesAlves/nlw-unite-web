@@ -1,4 +1,11 @@
-import { MoreHorizontal, Search } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  MoreHorizontal,
+  Search,
+} from "lucide-react";
 import { ReactNode } from "react";
 
 interface AttendeeListProps {
@@ -90,6 +97,20 @@ export function AttendeeList({ children }: AttendeeListProps) {
                 colSpan={3}
               >
                 Página 1 de 23
+                <div>
+                  <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <ChevronsLeft className="size-4" />
+                  </button>
+                  <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <ChevronLeft className="size-4" />
+                  </button>
+                  <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <ChevronRight className="size-4" />
+                  </button>
+                  <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <ChevronsRight className="size-4" />
+                  </button>
+                </div>
               </td>
             </tr>
           </tfoot>
