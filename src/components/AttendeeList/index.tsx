@@ -20,7 +20,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
         <div className="px-3 w-72 py-1.5 border border-white/10 rounded-lg text-sm flex items-center gap-3">
           <Search className="size-4 text-emerald-300" />
           <input
-            className="flex-1 bg-transparent outline-none"
+            className="flex-1 p-0 text-sm bg-transparent border-0 outline-none"
             placeholder="Buscar participantes..."
           />
         </div>
@@ -34,7 +34,12 @@ export function AttendeeList({ children }: AttendeeListProps) {
                 style={{ width: 64 }}
                 className="px-4 py-3 text-sm font-semibold text-left"
               >
-                <input type="checkbox" name="" id="" />
+                <input
+                  type="checkbox"
+                  className="border rounded size-4 bg-black/20 border-white/10"
+                  name=""
+                  id=""
+                />
               </th>
               <th className="px-4 py-3 text-sm font-semibold text-left">
                 Código
@@ -58,9 +63,17 @@ export function AttendeeList({ children }: AttendeeListProps) {
           <tbody>
             {Array.from({ length: 8 }).map((_, i) => {
               return (
-                <tr key={i} className="border-b border-white/10">
+                <tr
+                  key={i}
+                  className="border-b border-white/10 hover:bg-white/5"
+                >
                   <td className="px-4 py-3 text-sm text-zinc-300">
-                    <input type="checkbox" name="" id="" />
+                    <input
+                      type="checkbox"
+                      className="border rounded size-4 bg-black/20 border-white/10"
+                      name=""
+                      id=""
+                    />
                   </td>
                   <td className="px-4 py-3 text-sm text-zinc-300">12383</td>
                   <td className="px-4 py-3 text-sm text-zinc-300">
