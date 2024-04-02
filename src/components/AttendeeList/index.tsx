@@ -78,7 +78,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     3 dias atrás
                   </td>
                   <td className="px-4 py-3 text-sm text-zinc-300">
-                    <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
                       <MoreHorizontal className="size-4" />
                     </button>
                   </td>
@@ -100,19 +100,19 @@ export function AttendeeList({ children }: AttendeeListProps) {
                   <span>Página 1 de 23</span>
 
                   <div className="flex gap-1.5">
-                    <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
                       <ChevronsLeft className="size-4" />
                     </button>
 
-                    <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
                       <ChevronLeft className="size-4" />
                     </button>
 
-                    <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
                       <ChevronRight className="size-4" />
                     </button>
 
-                    <button className="border rounded-md bg-black/20 border-white/10 p-1.5">
+                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
                       <ChevronsRight className="size-4" />
                     </button>
                   </div>
