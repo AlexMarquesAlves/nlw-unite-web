@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { MoreHorizontal, Search } from "lucide-react";
 import { ReactNode } from "react";
 
 interface AttendeeListProps {
@@ -64,7 +64,11 @@ export function AttendeeList({ children }: AttendeeListProps) {
                   <td className="px-4 py-3 text-sm text-zinc-300">
                     3 dias atrás
                   </td>
-                  <td className="px-4 py-3 text-sm text-zinc-300"></td>
+                  <td className="px-4 py-3 text-sm text-zinc-300">
+                    <button>
+                      <MoreHorizontal className="size-4" />
+                    </button>
+                  </td>
                 </tr>
               );
             })}
