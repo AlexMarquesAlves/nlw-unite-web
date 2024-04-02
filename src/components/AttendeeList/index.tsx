@@ -96,7 +96,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
                 className="px-4 py-3 text-sm text-right text-zinc-300"
                 colSpan={3}
               >
-                <div className="flex items-center gap-8">
+                <div className="inline-flex items-center gap-8">
                   <span>Página 1 de 23</span>
 
                   <div className="flex gap-1.5">
