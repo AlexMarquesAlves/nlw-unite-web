@@ -69,7 +69,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </tr>
         </thead>
         <tbody>
-          {attendees.slice(0, 10).map((attendee) => {
+          {attendees.slice(page * 10, (page + 1) * 10).map((attendee) => {
             return (
               <TableRow key={attendee.id}>
                 <TableCell>
