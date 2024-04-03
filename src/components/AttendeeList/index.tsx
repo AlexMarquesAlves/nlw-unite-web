@@ -13,8 +13,10 @@ import { TableHeader } from "../Table/TableHeader";
 import { TableCell } from "../Table/TableCell";
 import { TableRow } from "../Table/TableRow";
 import { attendees } from "../../data/attendees";
-import { formatRelative } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -84,16 +86,8 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     <span>{attendee.email}</span>
                   </div>
                 </TableCell>
-                <TableCell>
-                  {formatRelative(attendee.createdAt, new Date(), {
-                    locale: ptBR,
-                  })}
-                </TableCell>
-                <TableCell>
-                  {formatRelative(attendee.checkedInAt, new Date(), {
-                    locale: ptBR,
-                  })}
-                </TableCell>
+                <TableCell>{dayjs(attendee.createdAt).toNow()}</TableCell>
+                <TableCell>{dayjs(attendee.checkedInAt).toNow()}</TableCell>
                 <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
