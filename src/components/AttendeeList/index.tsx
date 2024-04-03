@@ -26,6 +26,7 @@ interface AttendeeListProps {
 
 export function AttendeeList({ children }: AttendeeListProps) {
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(0);
 
   function onSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
@@ -68,7 +69,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </tr>
         </thead>
         <tbody>
-          {attendees.map((attendee) => {
+          {attendees.slice(0, 10).map((attendee) => {
             return (
               <TableRow key={attendee.id}>
                 <TableCell>
