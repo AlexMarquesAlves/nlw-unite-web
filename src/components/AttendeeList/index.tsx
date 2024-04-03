@@ -1,3 +1,4 @@
+import "dayjs/locale/pt-br";
 import {
   ChevronLeft,
   ChevronRight,
@@ -17,6 +18,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
+dayjs.locale("pt-br");
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -86,8 +88,8 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     <span>{attendee.email}</span>
                   </div>
                 </TableCell>
-                <TableCell>{dayjs(attendee.createdAt).toNow()}</TableCell>
-                <TableCell>{dayjs(attendee.checkedInAt).toNow()}</TableCell>
+                <TableCell>{dayjs().to(attendee.createdAt)}</TableCell>
+                <TableCell>{dayjs().to(attendee.checkedInAt)}</TableCell>
                 <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
