@@ -32,6 +32,10 @@ export function AttendeeList({ children }: AttendeeListProps) {
     setSearch(event.target.value);
   }
 
+  function goToNextPage() {
+    setPage(page + 1);
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
@@ -102,10 +106,14 @@ export function AttendeeList({ children }: AttendeeListProps) {
         </tbody>
         <tfoot>
           <tr>
-            <TableCell colSpan={3}>Mostrando 10 de 228 itens</TableCell>
+            <TableCell colSpan={3}>
+              Mostrando 10 de {attendees.length} itens
+            </TableCell>
             <TableCell className="text-right" colSpan={3}>
               <div className="inline-flex items-center gap-8">
-                <span>Página 1 de 23</span>
+                <span>
+                  Página {page} de {Math.ceil(attendees.length / 10)}
+                </span>
 
                 <div className="flex gap-1.5">
                   <IconButton>
@@ -116,7 +124,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     <ChevronLeft className="size-4" />
                   </IconButton>
 
-                  <IconButton>
+                  <IconButton onChange={goToNextPage}>
                     <ChevronRight className="size-4" />
                   </IconButton>
 
