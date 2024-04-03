@@ -1,13 +1,15 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
-interface TableHeaderProps {
+interface TableHeaderProps extends ComponentProps<"th"> {
   children: ReactNode;
 }
 
-export function TableHeader({ children }: TableHeaderProps) {
+export function TableHeader({ children, ...props }: TableHeaderProps) {
   return (
     <>
-      <th className="px-4 py-3 text-sm font-semibold text-left">{children}</th>
+      <th className="px-4 py-3 text-sm font-semibold text-left" {...props}>
+        {children}
+      </th>
     </>
   );
 }
