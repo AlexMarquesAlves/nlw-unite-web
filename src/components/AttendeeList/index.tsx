@@ -7,6 +7,7 @@ import {
   Search,
 } from "lucide-react";
 import { ReactNode } from "react";
+import { IconButton } from "../IconButton";
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -111,21 +112,21 @@ export function AttendeeList({ children }: AttendeeListProps) {
                   <span>Página 1 de 23</span>
 
                   <div className="flex gap-1.5">
-                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
+                    <IconButton>
                       <ChevronsLeft className="size-4" />
-                    </button>
+                    </IconButton>
 
-                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
+                    <IconButton>
                       <ChevronLeft className="size-4" />
-                    </button>
+                    </IconButton>
 
-                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
+                    <IconButton>
                       <ChevronRight className="size-4" />
-                    </button>
+                    </IconButton>
 
-                    <button className="border rounded-md bg-white/10 border-white/10 p-1.5">
+                    <IconButton>
                       <ChevronsRight className="size-4" />
-                    </button>
+                    </IconButton>
                   </div>
                 </div>
               </td>
