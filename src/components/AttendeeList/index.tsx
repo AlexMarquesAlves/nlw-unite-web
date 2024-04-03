@@ -6,7 +6,7 @@ import {
   MoreHorizontal,
   Search,
 } from "lucide-react";
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode, useState } from "react";
 import { IconButton } from "../IconButton";
 import { Table } from "../Table";
 import { TableHeader } from "../Table/TableHeader";
@@ -18,6 +18,10 @@ interface AttendeeListProps {
 }
 
 export function AttendeeList({ children }: AttendeeListProps) {
+  function onSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
+    console.log(event?.target.value);
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
@@ -25,6 +29,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
         <div className="px-3 w-72 py-1.5 border border-white/10 rounded-lg text-sm flex items-center gap-3">
           <Search className="size-4 text-emerald-300" />
           <input
+            onChange={onSearchInputChange}
             className="flex-1 p-0 text-sm bg-transparent border-0 outline-none"
             placeholder="Buscar participantes..."
           />
