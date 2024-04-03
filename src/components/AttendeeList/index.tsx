@@ -12,6 +12,7 @@ import { Table } from "../Table";
 import { TableHeader } from "../Table/TableHeader";
 import { TableCell } from "../Table/TableCell";
 import { TableRow } from "../Table/TableRow";
+import { attendee, attendees } from "../../data/attendees";
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -61,9 +62,9 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: 8 }).map((_, i) => {
+          {attendees.map((attendee) => {
             return (
-              <TableRow key={i}>
+              <TableRow key={attendee.id}>
                 <TableCell>
                   <input
                     type="checkbox"
@@ -72,17 +73,17 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     id=""
                   />
                 </TableCell>
-                <TableCell>12383</TableCell>
+                <TableCell>{attendee.id}</TableCell>
                 <TableCell>
                   <div className="flex flex-col gap-1">
                     <span className="font-semibold text-white">
-                      Diego Schell Fernandes
+                      {attendee.name}
                     </span>
-                    <span>diego@rocketseat.com.br</span>
+                    <span>{attendee.email}</span>
                   </div>
                 </TableCell>
-                <TableCell>7 dias atrás</TableCell>
-                <TableCell>3 dias atrás</TableCell>
+                <TableCell>{attendee.createdAt.toISOString()}</TableCell>
+                <TableCell>{attendee.checkedInAt.toISOString()}</TableCell>
                 <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
