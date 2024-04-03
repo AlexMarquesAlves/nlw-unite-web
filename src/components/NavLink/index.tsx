@@ -1,14 +1,13 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
-interface NavLinkProps {
+interface NavLinkProps extends ComponentProps<"a"> {
   children?: ReactNode;
 }
 
-export function NavLink({ children }: NavLinkProps) {
+export function NavLink(props: NavLinkProps) {
   return (
-    <>
-      <h1>NavLink</h1>
-      {children}
-    </>
+    <a {...props} className="font-medium text-sm">
+      {props.children}
+    </a>
   );
 }
