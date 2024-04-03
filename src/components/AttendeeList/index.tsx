@@ -11,6 +11,7 @@ import { IconButton } from "../IconButton";
 import { Table } from "../Table";
 import { TableHeader } from "../Table/TableHeader";
 import { TableCell } from "../Table/TableCell";
+import { TableRow } from "../Table/TableRow";
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -54,7 +55,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
         <tbody>
           {Array.from({ length: 8 }).map((_, i) => {
             return (
-              <tr key={i} className="border-b border-white/10 hover:bg-white/5">
+              <TableRow key={i}>
                 <TableCell>
                   <input
                     type="checkbox"
@@ -79,7 +80,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     <MoreHorizontal className="size-4" />
                   </IconButton>
                 </TableCell>
-              </tr>
+              </TableRow>
             );
           })}
         </tbody>
