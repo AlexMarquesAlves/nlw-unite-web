@@ -4,11 +4,6 @@ interface IconButtonProps extends ComponentProps<"button"> {
   children: ReactNode;
 }
 
-export function IconButton({ children }: IconButtonProps) {
-  return (
-    <>
-      <h1>IconButton</h1>
-      {children}
-    </>
-  );
+export function IconButton(props: IconButtonProps) {
+  return <button {...props}>{props.children}</button>;
 }
