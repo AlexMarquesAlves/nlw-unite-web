@@ -12,7 +12,9 @@ import { Table } from "../Table";
 import { TableHeader } from "../Table/TableHeader";
 import { TableCell } from "../Table/TableCell";
 import { TableRow } from "../Table/TableRow";
-import { attendee, attendees } from "../../data/attendees";
+import { attendees } from "../../data/attendees";
+import { formatRelative } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -82,8 +84,16 @@ export function AttendeeList({ children }: AttendeeListProps) {
                     <span>{attendee.email}</span>
                   </div>
                 </TableCell>
-                <TableCell>{attendee.createdAt.toISOString()}</TableCell>
-                <TableCell>{attendee.checkedInAt.toISOString()}</TableCell>
+                <TableCell>
+                  {formatRelative(attendee.createdAt, new Date(), {
+                    locale: ptBR,
+                  })}
+                </TableCell>
+                <TableCell>
+                  {formatRelative(attendee.checkedInAt, new Date(), {
+                    locale: ptBR,
+                  })}
+                </TableCell>
                 <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
