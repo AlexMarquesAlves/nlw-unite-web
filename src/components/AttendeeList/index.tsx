@@ -10,6 +10,7 @@ import { ReactNode } from "react";
 import { IconButton } from "../IconButton";
 import { Table } from "../Table";
 import { TableHeader } from "../Table/TableHeader";
+import { TableCell } from "../Table/TableCell";
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -54,43 +55,37 @@ export function AttendeeList({ children }: AttendeeListProps) {
           {Array.from({ length: 8 }).map((_, i) => {
             return (
               <tr key={i} className="border-b border-white/10 hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-zinc-300">
+                <TableCell>
                   <input
                     type="checkbox"
                     className="border rounded size-4 bg-black/20 border-white/10"
                     name=""
                     id=""
                   />
-                </td>
-                <td className="px-4 py-3 text-sm text-zinc-300">12383</td>
-                <td className="px-4 py-3 text-sm text-zinc-300">
+                </TableCell>
+                <TableCell>12383</TableCell>
+                <TableCell>
                   <div className="flex flex-col gap-1">
                     <span className="font-semibold text-white">
                       Diego Schell Fernandes
                     </span>
                     <span>diego@rocketseat.com.br</span>
                   </div>
-                </td>
-                <td className="px-4 py-3 text-sm text-zinc-300">
-                  7 dias atrás
-                </td>
-                <td className="px-4 py-3 text-sm text-zinc-300">
-                  3 dias atrás
-                </td>
-                <td className="px-4 py-3 text-sm text-zinc-300">
+                </TableCell>
+                <TableCell>7 dias atrás</TableCell>
+                <TableCell>3 dias atrás</TableCell>
+                <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
                   </IconButton>
-                </td>
+                </TableCell>
               </tr>
             );
           })}
         </tbody>
         <tfoot>
           <tr>
-            <td className="px-4 py-3 text-sm text-zinc-300" colSpan={3}>
-              Mostrando 10 de 228 itens
-            </td>
+            <TableCell colSpan={3}>Mostrando 10 de 228 itens</TableCell>
             <td
               className="px-4 py-3 text-sm text-right text-zinc-300"
               colSpan={3}
