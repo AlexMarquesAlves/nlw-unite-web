@@ -27,7 +27,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
       </div>
 
       <div className="border rounded-lg border-white/10">
-        <table className="w-full ">
+        <table className="w-full">
           <thead>
             <tr className="border-b border-white/10">
               <th
@@ -59,7 +59,6 @@ export function AttendeeList({ children }: AttendeeListProps) {
               ></th>
             </tr>
           </thead>
-
           <tbody>
             {Array.from({ length: 8 }).map((_, i) => {
               return (
@@ -99,7 +98,6 @@ export function AttendeeList({ children }: AttendeeListProps) {
               );
             })}
           </tbody>
-
           <tfoot>
             <tr>
               <td className="px-4 py-3 text-sm text-zinc-300" colSpan={3}>
