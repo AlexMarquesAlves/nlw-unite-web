@@ -18,10 +18,10 @@ interface AttendeeListProps {
 }
 
 export function AttendeeList({ children }: AttendeeListProps) {
-  const [valorDoInput, setValorDoInput] = useState("");
+  const [search, setSearch] = useState("");
 
   function onSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
-    setValorDoInput(event.target.value);
+    setSearch(event.target.value);
   }
 
   return (
@@ -36,7 +36,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
             placeholder="Buscar participantes..."
           />
         </div>
-        {valorDoInput}
+        {search}
       </div>
 
       <Table>
