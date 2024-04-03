@@ -9,6 +9,7 @@ import {
 import { ReactNode } from "react";
 import { IconButton } from "../IconButton";
 import { Table } from "../Table";
+import { TableHeader } from "../Table/TableHeader";
 
 interface AttendeeListProps {
   children?: ReactNode;
@@ -31,29 +32,18 @@ export function AttendeeList({ children }: AttendeeListProps) {
       <Table>
         <thead>
           <tr className="border-b border-white/10">
-            <th
-              style={{ width: 64 }}
-              className="px-4 py-3 text-sm font-semibold text-left"
-            >
+            <TableHeader style={{ width: 64 }}>
               <input
                 type="checkbox"
                 className="border rounded size-4 bg-black/20 border-white/10"
                 name=""
                 id=""
               />
-            </th>
-            <th className="px-4 py-3 text-sm font-semibold text-left">
-              Código
-            </th>
-            <th className="px-4 py-3 text-sm font-semibold text-left">
-              Participantes
-            </th>
-            <th className="px-4 py-3 text-sm font-semibold text-left">
-              Data de inscrição
-            </th>
-            <th className="px-4 py-3 text-sm font-semibold text-left">
-              Data do check-in
-            </th>
+            </TableHeader>
+            <TableHeader>Código</TableHeader>
+            <TableHeader>Participantes</TableHeader>
+            <TableHeader>Data de inscrição</TableHeader>
+            <TableHeader>Data do check-in</TableHeader>
             <th
               style={{ width: 64 }}
               className="px-4 py-3 text-sm font-semibold text-left"
