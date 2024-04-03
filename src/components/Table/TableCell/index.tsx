@@ -1,14 +1,15 @@
-import { ReactNode } from 'react';
+import { ComponentProps, ReactNode } from "react";
 
-interface TableCellProps {
+interface TableCellProps extends ComponentProps<"td"> {
   children: ReactNode;
 }
 
-export function TableCell({ children }: TableCellProps) {
+export function TableCell({ children, ...props }: TableCellProps) {
   return (
     <>
-      <h1>TableCell</h1>
-      {children}
+      <td className="px-4 py-3 text-sm font-semibold text-left" {...props}>
+        {children}
+      </td>
     </>
   );
 }
