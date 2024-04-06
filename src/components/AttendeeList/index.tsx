@@ -30,9 +30,10 @@ interface Attendee {
 export function AttendeeList() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
   const [attendees, setAttendees] = useState<Attendee[]>([]);
 
-  const totalPages = Math.ceil(attendees.length / 10);
+  const totalPages = Math.ceil(total / 10);
 
   useEffect(() => {
     fetch(
@@ -41,6 +42,7 @@ export function AttendeeList() {
       .then((response) => response.json())
       .then((data) => {
         setAttendees(data);
+        setTotal(data.total);
       });
 
     return () => {};
@@ -125,10 +127,10 @@ export function AttendeeList() {
                 </TableCell>
                 <TableCell>{dayjs().to(attendee.createdAt)}</TableCell>
                 <TableCell>
-                  {ateendee.checkedInAt === null ? (
+                  {attendee.checkedInAt === null ? (
                     <span className="text-zinc-400">Não fez check-in</span>
                   ) : (
-                    dayjs().to(ateendee.checkedInAt)
+                    dayjs().to(attendee.checkedInAt)
                   )}
                 </TableCell>
                 <TableCell>
