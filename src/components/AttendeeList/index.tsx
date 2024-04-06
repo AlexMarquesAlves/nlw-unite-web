@@ -7,13 +7,12 @@ import {
   MoreHorizontal,
   Search,
 } from "lucide-react";
-import { ChangeEvent, ReactNode, useState } from "react";
+import { ChangeEvent, ReactNode, useEffect, useState } from "react";
 import { IconButton } from "../IconButton";
 import { Table } from "../Table";
 import { TableHeader } from "../Table/TableHeader";
 import { TableCell } from "../Table/TableCell";
 import { TableRow } from "../Table/TableRow";
-import { attendees } from "../../data/attendees";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -27,7 +26,17 @@ interface AttendeeListProps {
 export function AttendeeList({ children }: AttendeeListProps) {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [attendees, setAttendees] = useState([]);
+
   const totalPages = Math.ceil(attendees.length / 10);
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:3333/events/9e9bd979-9d10-4915-b339-3786b1634f33/attendees`
+    );
+
+    return () => {};
+  }, [page]);
 
   function onSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
