@@ -36,7 +36,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setAttendees(data);
       });
 
     return () => {};
