@@ -1,4 +1,3 @@
-import "dayjs/locale/pt-br";
 import {
   ChevronLeft,
   ChevronRight,
@@ -6,15 +5,16 @@ import {
   ChevronsRight,
   MoreHorizontal,
   Search,
+  Table,
 } from "lucide-react";
-import { ChangeEvent, ReactNode, useEffect, useState } from "react";
-import { IconButton } from "../IconButton";
-import { Table } from "../Table";
-import { TableHeader } from "../Table/TableHeader";
-import { TableCell } from "../Table/TableCell";
-import { TableRow } from "../Table/TableRow";
+import { ChangeEvent, useEffect, useState } from "react";
 import dayjs from "dayjs";
+import "dayjs/locale/pt-br";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { IconButton } from "../IconButton";
+import { TableCell } from "../Table/TableCell";
+import { TableHeader } from "../Table/TableHeader";
+import { TableRow } from "../Table/TableRow";
 
 dayjs.extend(relativeTime);
 dayjs.locale("pt-br");
@@ -28,82 +28,121 @@ interface Attendee {
 }
 
 export function AttendeeList() {
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState(() => {
+    const url = new URL(window.location.toString());
+
+    if (url.searchParams.has("search")) {
+      return url.searchParams.get("search") ?? "";
+    }
+
+    return "";
+  });
+  const [page, setPage] = useState(() => {
+    const url = new URL(window.location.toString());
+
+    if (url.searchParams.has("page")) {
+      return Number(url.searchParams.get("page"));
+    }
+
+    return 1;
+  });
+
   const [total, setTotal] = useState(0);
   const [attendees, setAttendees] = useState<Attendee[]>([]);
 
   const totalPages = Math.ceil(total / 10);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:3333/events/b798bd9c-9d6a-4027-aa66-2fe06e9dd040/attendees?pageIndex=${
-        page - 1
-      }`
-    )
+    const url = new URL(
+      "http://localhost:3333/events/9e9bd979-9d10-4915-b339-3786b1634f33/attendees"
+    );
+
+    url.searchParams.set("pageIndex", String(page - 1));
+    if (search.length > 1) {
+      url.searchParams.set("query", search);
+    }
+
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setAttendees(data);
+        setAttendees(data.attendees);
         setTotal(data.total);
       });
+  }, [page, search]);
 
-    return () => {};
-  }, [page]);
+  function setCurrentSearch(search: string) {
+    const url = new URL(window.location.toString());
 
-  function onSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
-    setSearch(event.target.value);
+    url.searchParams.set("search", search);
+
+    window.history.pushState({}, "", url);
+
+    setSearch(search);
+  }
+
+  function setCurrentPage(page: number) {
+    const url = new URL(window.location.toString());
+
+    url.searchParams.set("page", String(page));
+
+    window.history.pushState({}, "", url);
+
+    setPage(page);
+  }
+
+  function onSearchInputChanged(event: ChangeEvent<HTMLInputElement>) {
+    setCurrentSearch(event.target.value);
+    setCurrentPage(1);
   }
 
   function goToFirstPage() {
-    setPage(1);
-  }
-
-  function goToPreviousPage() {
-    setPage(page - 1);
-  }
-
-  function goToNextPage() {
-    setPage(page + 1);
+    setCurrentPage(1);
   }
 
   function goToLastPage() {
-    setPage(totalPages);
+    setCurrentPage(totalPages);
+  }
+
+  function goToPreviousPage() {
+    setCurrentPage(page - 1);
+  }
+
+  function goToNextPage() {
+    setCurrentPage(page + 1);
   }
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
         <h1 className="text-2xl font-bold">Participantes</h1>
-        <div className="px-3 w-72 py-1.5 border border-white/10 rounded-lg text-sm flex items-center gap-3">
+        <div className="px-3 w-72 py-1.5 border border-white/10 rounded-lg flex items-center gap-3">
           <Search className="size-4 text-emerald-300" />
           <input
-            onChange={onSearchInputChange}
-            className="flex-1 p-0 text-sm bg-transparent border-0 outline-none"
-            placeholder="Buscar participantes..."
+            className="flex-1 p-0 text-sm bg-transparent border-0 outline-none focus:ring-0"
+            placeholder="Buscar participante..."
+            value={search}
+            onChange={onSearchInputChanged}
           />
         </div>
-        {search}
       </div>
 
       <Table>
         <thead>
           <tr className="border-b border-white/10">
-            <TableHeader style={{ width: 64 }}>
+            <TableHeader style={{ width: 48 }}>
               <input
                 type="checkbox"
                 className="border rounded size-4 bg-black/20 border-white/10"
-                name=""
-                id=""
               />
             </TableHeader>
             <TableHeader>Código</TableHeader>
-            <TableHeader>Participantes</TableHeader>
+            <TableHeader>Participante</TableHeader>
             <TableHeader>Data de inscrição</TableHeader>
             <TableHeader>Data do check-in</TableHeader>
-            <th
+            <TableHeader
               style={{ width: 64 }}
-              className="px-4 py-3 text-sm font-semibold text-left"
-            ></th>
+              children={undefined}
+            ></TableHeader>
           </tr>
         </thead>
         <tbody>
@@ -114,8 +153,6 @@ export function AttendeeList() {
                   <input
                     type="checkbox"
                     className="border rounded size-4 bg-black/20 border-white/10"
-                    name=""
-                    id=""
                   />
                 </TableCell>
                 <TableCell>{attendee.id}</TableCell>
@@ -136,7 +173,10 @@ export function AttendeeList() {
                   )}
                 </TableCell>
                 <TableCell>
-                  <IconButton transparent>
+                  <IconButton
+                    transparent
+                    className="bg-black/20 border border-white/10 rounded-md p-1.5"
+                  >
                     <MoreHorizontal className="size-4" />
                   </IconButton>
                 </TableCell>
@@ -159,18 +199,15 @@ export function AttendeeList() {
                   <IconButton onClick={goToFirstPage} disabled={page === 1}>
                     <ChevronsLeft className="size-4" />
                   </IconButton>
-
                   <IconButton onClick={goToPreviousPage} disabled={page === 1}>
                     <ChevronLeft className="size-4" />
                   </IconButton>
-
                   <IconButton
                     onClick={goToNextPage}
                     disabled={page === totalPages}
                   >
                     <ChevronRight className="size-4" />
                   </IconButton>
-
                   <IconButton
                     onClick={goToLastPage}
                     disabled={page === totalPages}
