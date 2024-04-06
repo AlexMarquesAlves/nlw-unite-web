@@ -21,12 +21,17 @@ dayjs.locale("pt-br");
 
 interface AttendeeListProps {
   children?: ReactNode;
+  id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+  checkedInAt: string | null;
 }
 
 export function AttendeeList({ children }: AttendeeListProps) {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [attendees, setAttendees] = useState([]);
+  const [attendees, setAttendees] = useState<AttendeeListProps[]>([]);
 
   const totalPages = Math.ceil(attendees.length / 10);
 
@@ -99,7 +104,7 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </tr>
         </thead>
         <tbody>
-          {attendees.slice((page - 1) * 10, page * 10).map((attendee) => {
+          {attendees.map((attendee) => {
             return (
               <TableRow key={attendee.id}>
                 <TableCell>
