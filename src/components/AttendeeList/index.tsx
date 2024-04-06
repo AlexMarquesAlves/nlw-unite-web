@@ -19,8 +19,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 dayjs.locale("pt-br");
 
-interface AttendeeListProps {
-  children?: ReactNode;
+interface Attendee {
   id: string;
   name: string;
   email: string;
@@ -28,10 +27,10 @@ interface AttendeeListProps {
   checkedInAt: string | null;
 }
 
-export function AttendeeList({ children }: AttendeeListProps) {
+export function AttendeeList() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [attendees, setAttendees] = useState<AttendeeListProps[]>([]);
+  const [attendees, setAttendees] = useState<Attendee[]>([]);
 
   const totalPages = Math.ceil(attendees.length / 10);
 
@@ -174,8 +173,6 @@ export function AttendeeList({ children }: AttendeeListProps) {
           </tr>
         </tfoot>
       </Table>
-
-      {children}
     </div>
   );
 }
