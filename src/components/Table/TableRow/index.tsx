@@ -1,22 +1,9 @@
-import { ComponentProps, ReactNode } from "react";
-import { twMerge } from "tailwind-merge";
+import { ComponentProps } from "react";
 
-interface TableRowProps extends ComponentProps<"tr"> {
-  children: ReactNode;
-}
+interface TableRowProps extends ComponentProps<"tr"> {}
 
-export function TableRow({ children, ...props }: TableRowProps) {
+export function TableRow(props: TableRowProps) {
   return (
-    <>
-      <tr
-        {...props}
-        className={twMerge(
-          "border-b border-white/10 hover:bg-white/5",
-          props.className
-        )}
-      >
-        {children}
-      </tr>
-    </>
+    <tr className="border-b border-white/10 hover:bg-white/5" {...props} />
   );
 }

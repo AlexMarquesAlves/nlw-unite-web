@@ -1,15 +1,11 @@
-import { ComponentProps, ReactNode } from "react";
+import { ComponentProps } from "react";
 
-interface TableProps extends ComponentProps<"table"> {
-  children: ReactNode;
-}
+interface TableProps extends ComponentProps<"table"> {}
 
-export function Table({ children, ...props }: TableProps) {
+export function Table(props: TableProps) {
   return (
     <div className="border rounded-lg border-white/10">
-      <table className="w-full" {...props}>
-        {children}
-      </table>
+      <table className="w-full" {...props} />
     </div>
   );
 }

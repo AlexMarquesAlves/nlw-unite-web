@@ -5,16 +5,16 @@ import {
   ChevronsRight,
   MoreHorizontal,
   Search,
-  Table,
 } from "lucide-react";
+import { IconButton } from "../IconButton";
+import { Table } from "../Table";
+import { TableHeader } from "../Table/TableHeader";
+import { TableCell } from "../Table/TableCell";
+import { TableRow } from "../Table/TableRow";
 import { ChangeEvent, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { IconButton } from "../IconButton";
-import { TableCell } from "../Table/TableCell";
-import { TableHeader } from "../Table/TableHeader";
-import { TableRow } from "../Table/TableRow";
 
 dayjs.extend(relativeTime);
 dayjs.locale("pt-br");
@@ -139,10 +139,7 @@ export function AttendeeList() {
             <TableHeader>Participante</TableHeader>
             <TableHeader>Data de inscrição</TableHeader>
             <TableHeader>Data do check-in</TableHeader>
-            <TableHeader
-              style={{ width: 64 }}
-              children={undefined}
-            ></TableHeader>
+            <TableHeader style={{ width: 64 }}></TableHeader>
           </tr>
         </thead>
         <tbody>
